@@ -22,17 +22,12 @@
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-#define API_URL @"https://api.getchute.com/v1/"
-#define SERVER_URL @"https://getchute.com"
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-//#define kUDID               [[UIDevice currentDevice] uniqueIdentifier]
 #define kDEVICE_NAME        [[UIDevice currentDevice] name]
 #define kDEVICE_OS          [[UIDevice currentDevice] systemName]
 #define kDEVICE_VERSION     [[UIDevice currentDevice] systemVersion]
 
 #warning Replace the following setting with your own client info
+
 #define kOAuthCallbackURL               @"http://getchute.com/oauth/callback"
 #define kOAuthCallbackRelativeURL       @"/oauth/callback"
 
@@ -43,8 +38,8 @@
 
 #define kOAuthTokenURL                  @"https://getchute.com/oauth/access_token"
 
-
-#define API_URL @"https://api.getchute.com/v1/"
-#define SERVER_URL @"https://getchute.com"
+#define API_URL                         @"https://api.getchute.com/v1/"
+#define ACCOUNTS_API_URL                @"http://accounts.getchute.com/v1/"
+#define SERVER_URL                      @"https://getchute.com"
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////

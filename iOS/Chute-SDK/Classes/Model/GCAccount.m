@@ -53,6 +53,8 @@ static GCAccount *sharedAccountManager = nil;
                 [_obj setObject:[NSString stringWithFormat:@"%@",[_dic objectForKey:@"uid"]] forKey:@"uid"];
             if([_dic objectForKey:@"id"] && ![[NSString stringWithFormat:@"%@",[_dic objectForKey:@"id"]] isEqualToString:@"<null>"])
                 [_obj setObject:[NSString stringWithFormat:@"%@",[_dic objectForKey:@"id"]] forKey:@"accountID"];
+            if([_dic objectForKey:@"shortcut"] && ![[NSString stringWithFormat:@"%@",[_dic objectForKey:@"shortcut"]] isEqualToString:@"<null>"])
+                [_obj setObject:[NSString stringWithFormat:@"%@",[_dic objectForKey:@"shortcut"]] forKey:@"accountShortcut"];
             if([_dic objectForKey:@"name"] && ![[NSString stringWithFormat:@"%@",[_dic objectForKey:@"name"]] isEqualToString:@"<null>"])
                 [_obj setObject:[NSString stringWithFormat:@"%@",[_dic objectForKey:@"name"]] forKey:@"name"];
             if([_dic objectForKey:@"notifications_enabled"] && ![[NSString stringWithFormat:@"%@",[_dic objectForKey:@"notifications_enabled"]] isEqualToString:@"<null>"])
@@ -98,7 +100,7 @@ static GCAccount *sharedAccountManager = nil;
         [response setError:[GCError errorWithDomain:@"GCError" code:401 userInfo:_errorDetail]];
         return [response autorelease];
     }
-    NSString *_path = [NSString stringWithFormat:@"%@accounts/%@/objects", API_URL,accountID];
+    NSString *_path = [NSString stringWithFormat:@"%@accounts/%@/objects", ACCOUNTS_API_URL,accountID];
     GCRequest *gcRequest = [[GCRequest alloc] init];
     
     GCResponse *response = [[gcRequest getRequestWithPath:_path] retain];
@@ -129,7 +131,7 @@ static GCAccount *sharedAccountManager = nil;
         return [response autorelease];
     }
 
-    NSString *_path = [NSString stringWithFormat:@"%@accounts/%@/objects/%@", API_URL,accountID,albumID];
+    NSString *_path = [NSString stringWithFormat:@"%@accounts/%@/objects/%@/media", ACCOUNTS_API_URL,accountID,albumID];
     GCRequest *gcRequest = [[GCRequest alloc] init];
     
     GCResponse *response = [[gcRequest getRequestWithPath:_path] retain];
